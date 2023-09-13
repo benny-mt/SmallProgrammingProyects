@@ -1,0 +1,45 @@
+#include <iostream>
+#include <deque>
+using namespace std;
+
+int main(){
+  
+int query; //insert repetitions of how many times the user will enter values into the loop
+int fchoice;
+int d; 
+long x; 
+int p;
+  
+cin >> query;
+deque<int>vecta;
+for (int i = 1; i <= query; i++) //query loop
+  {
+    cin >> fchoice;
+  switch (fchoice)
+    {
+    case 0: //0
+      cin >> d; //0 for front, 1 for back
+      cin >> x; //value to insert in pos depending of d
+        if (d == 0)
+          vecta.push_front(x); //insert value in front
+        else if (d == 1)
+          vecta.push_back(x); //insert value at back
+      break;
+      
+    case 1: //1
+      cin >> p; //position
+      cout << vecta[p] << endl;
+      break;
+      
+    case 2: //2
+      cin >> d; //0 for frnt, a for bck
+        if (d == 0)
+          vecta.pop_front();
+        else if (d == 1)
+          vecta.pop_back();
+      break;
+    }
+  }
+  
+  return 0;
+}
