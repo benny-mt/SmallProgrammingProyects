@@ -1,0 +1,58 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+
+int main(){
+
+int query; //insert repetitions of how many times the user will enter values into the loop
+int fchoice;
+int value;
+int pos; //index
+int size;
+  
+cin >> size; //size of stack
+cin >> query;
+
+stack<int>myStack[size]; //creates stack with the size of "size"
+
+for (int i = 1; i <= query; i++) //query
+  {
+    cin >> fchoice;
+  switch (fchoice)
+    {
+
+    case 0: //0 //push //insert value
+      cin >> pos;
+      cin >> value;
+      myStack[pos].push(value); //insert value at "pos" position 
+      break;
+
+      
+    case 1: //1 //top //check value next to myStack St, if St is empty do nothing
+      cin >> pos; //index
+      if (myStack[pos].size() == 0)
+      {
+        cout << ""; //do nothing
+      }
+      else 
+        cout << myStack[pos].top() << endl;
+       break;
+
+
+    case 2: //2 //pop //remove value
+      cin >> pos;
+      if (myStack[pos].size() == 0)
+      {
+        cout << ""; //do nothing
+      }
+      else
+          myStack[pos].pop();
+      
+      break;
+    }
+  }
+
+  
+
+}
