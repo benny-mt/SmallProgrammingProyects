@@ -1,0 +1,60 @@
+#include <iostream>
+#include <list>
+using namespace std;
+
+
+int main(){
+
+list<int>myList;
+list<int>::iterator iter; //iterator (to help add a node between 2 nodes)
+//iterator is a pointer that points at some object at a list
+  
+iter = myList.end();//iterador apunta al ultimo elemento en myList
+
+
+  
+int query; //insert repetitions of how many times the user will enter values into the loop
+int fchoice;
+int value;
+int d;
+
+  
+cin >> query;
+for (int i = 1; i <= query; i++) //query
+  {
+    cin >> fchoice;
+  switch (fchoice)
+    {
+
+    case 0: //0 //insert
+      cin >> value;
+      iter = myList.insert(iter, value); //insert value at pos pointed by iter
+      break;
+
+      
+    case 1: //1 //move
+      cin >> d; //if d is -, point to front, viceversa
+        if (d > 0) //d is positive
+           for (int i = 0; i < d; i++) //iter to points at end
+             iter++; //moves a space forward
+          
+        else 
+           for (int i = 0; i < -d; i++) //iter to point at beginning
+             iter--; //moves a space backwards
+          
+       break;
+
+
+    case 2: //2 //erase
+      iter = myList.erase(iter); //will delete the value pointed by iter.It will later point to the value next to it
+
+      break;
+    }
+  }
+
+  
+for (list<int>::iterator it2 = myList.begin(); it2 != myList.end(); it2++) //for loop to print everything inside the list
+		cout << *it2 << endl; //prints whatever it2 is pointing to
+  
+  return 0;
+}
